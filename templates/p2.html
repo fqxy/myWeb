@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python项目</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+
+        body {
+            padding-top: 50px;
+            padding-bottom: 40px;
+            color: #5a5a5a;
+        }
+
+        /* 轮播广告 */
+
+        .carousel {
+            height: 500px;
+            margin-bottom: 60px;
+        }
+
+        .carousel .item {
+            height: 500px;
+            background-color: #000;
+        }
+
+        .carousel .item img {
+            width: 100%;
+        }
+
+        .carousel-caption {
+            z-index: 10;
+        }
+
+        .carousel-caption p {
+            margin-bottom: 20px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        /* 简介 */
+
+        .summary {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .summary .col-md-4 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 特性 */
+
+        .feature-divider {
+            margin: 40px 0;
+        }
+
+        .feature {
+            padding: 30px 0;
+        }
+
+        .feature-heading {
+            font-size: 50px;
+            color: #2a6496;
+        }
+
+        .feature-heading .text-muted {
+            font-size: 28px;
+        }
+
+        /* 响应式布局 */
+
+        @media (max-width: 768px) {
+
+            .summary {
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+
+            .carousel {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .carousel .item {
+                height: 300px;
+            }
+
+            .carousel img {
+                min-height: 300px;
+            }
+
+            .carousel-caption p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .feature-heading {
+                font-size: 34px;
+            }
+
+            .feature-heading .text-muted {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .feature-heading {
+                margin-top: 120px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+<!-- 顶部导航 -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Python项目</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <!-- 成员介绍 -->
+                <li><a href="{{url_for('p1')}}">成员介绍</a></li>
+
+                <!-- 项目简介 -->
+                <li class="active"><a href="{{url_for('p2')}}">项目简介</a></li>
+
+                <!-- 主要内容 -->
+                <li><a href="{{url_for('p3')}}">预期效果</a></li>
+
+                <!-- 关于 -->
+                <li><a href="#" data-toggle="modal" data-target="#about-modal">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- 广告轮播 -->
+<div id="ad-carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#ad-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#ad-carousel" data-slide-to="1"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <!--第1个滚动-->
+        <div class="item active">
+            <img src="{{ url_for('static', filename='images/wzly.jpg') }}" alt="1 slide">
+
+            <div class="container">
+                <div class="carousel-caption">
+                    <p><a class="btn btn-lg btn-primary" href="http://www.7799520.com/"
+                          role="button" target="_blank">了解一下</a></p>
+                </div>
+            </div>
+        </div>
+        <!--第2个滚动-->
+        <div class="item">
+            <img src="{{ url_for('static', filename='images/wozhuliangyuan.png') }}" alt="2 slide">
+
+            <div class="container">
+                <div class="carousel-caption">
+
+                    <p><a class="btn btn-lg btn-primary" href="http://www.7799520.com/" target="_blank"
+                          role="button">了解一下</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--向左按钮-->
+    <a class="left carousel-control" href="#ad-carousel" data-slide="prev"><span
+            class="glyphicon glyphicon-chevron-left"></span></a>
+    <!--向右按钮-->
+    <a class="right carousel-control" href="#ad-carousel" data-slide="next"><span
+            class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+
+
+<!-- 主要内容 -->
+<div class="container summary">
+
+    <!-- 特点 -->
+    <ul class="nav nav-tabs" role="tablist" id="feature-tab">
+        <li class="active"><a href="#tab-chrome" role="tab" data-toggle="tab">项目简介</a></li>
+        <li><a href="#tab-firefox" role="tab" data-toggle="tab">抓取信息</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab-chrome">
+            <div class="row feature">
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">我主良缘 <span
+                            class="text-muted">婚介服务平台</span></h2>
+
+                    <p class="lead">现如今单身群体数量庞大，交友需求日益增加，针对此现象，“我主良缘”提供了形象打造、情感指导、高端婚介
+                        三种专业服务，是一个网络相亲平台。我们小组想在这一平台，通过爬虫抓取相关信息，并进行分析处理，获取当今单身男女
+                        的一些相关信息。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="{{ url_for('static', filename='images/logo.jpg') }}"
+                         alt="Chrome">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-firefox">
+            <div class="row feature">
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src="{{ url_for('static', filename='images/pachong.jpg') }}"
+                         alt="Firefox">
+                </div>
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">抓取信息 <span class="text-muted">通过python爬虫</span>
+                    </h2>
+
+                    <p class="lead">
+                        <br>
+                        1.基本信息：性别，年龄，身高，职业，地区，教育水平，收入等
+                        <br><br>
+                        2.择偶标准：长相，兴趣爱好，收入等</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- 关于 -->
+    <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                    <h4 class="modal-title" id="modal-label">关于</h4>
+                </div>
+                <div class="modal-body">
+                    <p>队伍由三个来自浙江大学的学生组建，致力于Python爬虫的研究。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">了解了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p class="pull-right"><a href="#top">回到顶部</a></p>
+
+        <p>&copy; ZJU2018</p>
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/end.js') }}"></script>
+
+</body>
+</html>

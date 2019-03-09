@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python项目</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="{{ url_for('static', filename='js/age1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/age2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/city_1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/city_2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/edu1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/edu2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/height_bar1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/height_bar2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/height_pie1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/height_pie2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/word1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/word2.js') }}"></script>
+    <style>
+
+        body {
+            padding-top: 100px;
+            padding-bottom: 70px;
+            color: #5a5a5a;
+        }
+
+        /* 简介 */
+
+        .summary {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .summary .col-md-4 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 特性 */
+
+        .feature-divider {
+            margin: 40px 0;
+        }
+
+        .feature {
+            padding: 30px 0;
+        }
+
+        .feature-heading {
+            font-size: 50px;
+            color: #2a6496;
+        }
+
+        .feature-heading .text-muted {
+            font-size: 28px;
+        }
+
+        /* 响应式布局 */
+
+        @media (max-width: 768px) {
+
+            .summary {
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+
+            .carousel {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .carousel .item {
+                height: 300px;
+            }
+
+            .carousel img {
+                min-height: 300px;
+            }
+
+            .carousel-caption p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .feature-heading {
+                font-size: 34px;
+            }
+
+            .feature-heading .text-muted {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .feature-heading {
+                margin-top: 120px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+<!-- 顶部导航 -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Python项目</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                 <!-- 成员介绍 -->
+                <li><a href="{{url_for('p1')}}">成员介绍</a></li>
+
+                <!-- 项目简介 -->
+                <li><a href="{{url_for('p2')}}">项目简介</a></li>
+
+                <!-- 主要内容 -->
+                <li class="active"><a href="{{url_for('p3')}}">预期效果</a></li>
+
+                <!-- 关于 -->
+                <li><a href="#" data-toggle="modal" data-target="#about-modal">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 主要内容 -->
+<div class="container summary">
+
+    <!-- 简介 -->
+    <div class="row" id="summary-container">
+        <div class="col-md-4">
+            <img class="img-circle" src="{{ url_for('static', filename='images/echarts.jpg') }}" alt="chrome">
+            <h2>pyecharts</h2>
+        </div>
+        <div class="col-md-4">
+
+            <img class="img-circle" src="{{ url_for('static', filename='images/matplotlib.png') }}" alt="firefox">
+
+            <h2>Matplotlib</h2>
+
+        </div>
+        <div class="col-md-4">
+            <img class="img-circle" src="{{ url_for('static', filename='images/word.jpg') }}" alt="safari">
+
+            <h2>wordcloud</h2>
+        </div>
+    </div>
+
+    <!-- 特点 -->
+
+    <hr class="feature-divider">
+
+    <ul class="nav nav-tabs" role="tablist" id="feature-tab">
+        <li class="active2"><a href="#tab-firefox" role="tab" data-toggle="tab">年龄</a></li>
+        <li class="active3"><a href="#tab-safari" role="tab" data-toggle="tab">学历</a></li>
+        <li class="active4"><a href="#tab-height" role="tab" data-toggle="tab">身高</a></li>
+        <li class="active1"><a href="#tab-chrome" role="tab" data-toggle="tab">地区分布</a></li>
+        <li class="active5"><a href="#tab-announcement" role="tab" data-toggle="tab">交友宣言</a></li>        
+    </ul>
+
+    <div class="tab-content">
+        
+        <div class="tab-pane active1" id="tab-chrome">
+            <div class="row feature">
+                <div class="col-md-5">
+
+                    <h2 class="feature-heading">pyecharts <span
+                            class="text-muted"> 炫酷样式表</span></h2>
+
+                    <p class="lead">我们将利用pyecharts这个库，采用交互式图片来展示地区分布信息。
+                        通过抓取地区信息，将这些信息整理为地图，右边是预览效果：</p>
+                </div>
+                <div class="col-md-7">
+                    <div id="499bc171469c4f5397b4f933ba7882af" style="width:700px;height:400px;"></div>
+                    <script src="{{ url_for('static', filename='js/city_3.js') }}"></script>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane active2" id="tab-firefox">
+            <div class="row feature">
+                <div class="col-md-5">
+
+                    <h2 class="feature-heading">Matplotlib <span class="text-muted">漂亮的绘图库</span>
+                    </h2>
+
+                    <p class="lead">采用静态的饼状图来展示用户身高信息。采用matplotlib
+                        库来进行身高信息整合，左图是生成的身高饼状图：</p>
+                </div>
+                <div class="col-md-7">
+                    <div id="bc8bc1d593294ffc8fa30d841d0f395f" style="width:700px;height:400px;"></div>
+                    <script src="{{ url_for('static', filename='js/age3.js') }}"></script>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane active3" id="tab-safari">
+            <div class="row feature">
+                <div class="col-md-5">
+
+                    <h2 class="feature-heading">wordcloud <span class="text-muted">可视化词语</span></h2>
+
+                    <p class="lead">
+                        采用词云来展示用户择偶标准，词云可以直观展示相关标准出现的频率。
+                        右图是用wordcloud库生成的词云：
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <div id="efaf4521b5744608bd71fa583b03e610" style="width:700px;height:400px;"></div>
+                    <script src="{{ url_for('static', filename='js/edu3.js') }}"></script>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane active4" id="tab-height">
+            <div class="row feature">
+                <div class="col-md-5">
+
+                    <h2 class="feature-heading">pyecharts <span
+                            class="text-muted"> 炫酷样式表</span></h2>
+
+                    <p class="lead">我们将利用pyecharts这个库，采用交互式图片来展示地区分布信息。
+                        通过抓取地区信息，将这些信息整理为地图，右边是预览效果：</p>
+                </div>
+                <div class="col-md-7">
+                    <div id="ca6c79b2e66444f1864daab666bd7489" style="width:700px;height:400px;"></div>
+                    <script src="{{ url_for('static', filename='js/height_bar3.js') }}"></script>
+                </div>
+                <div class="col-md-7">
+                    <div id="8e844f825a534d6d9c38180060be6100" style="width:700px;height:400px;"></div>
+                    <script src="{{ url_for('static', filename='js/height_pie3.js') }}"></script>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane active5" id="tab-announcement">
+            <div class="row feature">
+                <div class="col-md-5">
+
+                    <h2 class="feature-heading">wordcloud <span class="text-muted">可视化词语</span></h2>
+
+                    <p class="lead">
+                        采用词云来展示用户择偶标准，词云可以直观展示相关标准出现的频率。
+                        右图是用wordcloud库生成的词云：
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <div id="b26ede4c2c7a44a58718e7fa5ed432de" style="width:700px;height:400px;"></div>
+                    <script src="{{ url_for('static', filename='js/word3.js') }}"></script>
+                </div>
+            </div>
+        </div>
+        
+              
+        
+    </div>
+
+    <!-- 关于 -->
+    <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                    <h4 class="modal-title" id="modal-label">关于</h4>
+                </div>
+                <div class="modal-body">
+                    <p>队伍由三个来自浙江大学的学生组建，致力于Python爬虫的研究。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">了解了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p class="pull-right"><a href="#top">回到顶部</a></p>
+
+        <p>&copy; ZJU2018</p>
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/end.js') }}"></script>
+
+</body>
+</html>
